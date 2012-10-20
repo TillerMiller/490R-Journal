@@ -1,0 +1,30 @@
+<p>
+  <h2>
+  <b>Name:</b>
+  <%= @diary.title %>
+  </h2>
+</p>
+
+<p>
+  <b>Date this journal was started:</b>
+  <%= @diary.start_date.strftime("%a %b %d %I:%M %p %Y") %>
+</p>
+
+<p>
+  <b>Entry:</b>
+  <% @diary.entries.each do |entry| %>
+	<table class="table table-bordered">
+		<tr><td><%= entry.title %></td></tr>
+		<tr><td><%= entry.date %></td></tr>
+		<tr><td>
+			<%= link_to 'View Entry', diary_entry_path(@diary, entry), :class => "btn btn-small" %>
+			<%= link_to 'Destroy Entry', ([@diary, entry]), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %>
+		</td></tr>
+	</table>
+  <% end %>
+</p>
+
+<%= link_to 'Add Entry', new_diary_entry_path(@diary, Entry.new), :class => "btn btn-success" %> 
+<%= link_to 'Edit Journal', edit_diary_path(@diary), :class => "btn btn-warning" %> 
+<%= link_to 'Back', diaries_path, :class => "btn btn-primary" %> 
+<%= link_to 'Destroy Journal', @diary, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>

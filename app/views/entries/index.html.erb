@@ -1,0 +1,15 @@
+<h1>Journal Entries</h1>
+
+<% @diary.entries.each do |entry| %>
+<table class="table table-bordered">
+	<tr><td><%= entry.title %></tr></td>
+	<tr><td><%= entry.date %></tr></td>
+	<tr><td>
+		<%= link_to 'View Entry', diary_entry_path(entry), :class => "btn btn-small" %>
+		<%= link_to 'Destroy Entry', [@diary, @entry], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %>
+	</tr></td>
+</table>
+
+<% end %>
+
+<%= link_to 'New Journal Entry', new_diary_entry_path(@entry), :class => "btn" %>

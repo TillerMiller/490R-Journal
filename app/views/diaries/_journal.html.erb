@@ -1,0 +1,11 @@
+<%= div_for journal do %>
+	<h1><%= link_to_unless_current journal.title, journal %></h1>
+	<span class="title">User:</span> <%= journal.user.email %><br/>
+	<span class="title">Start Date:</span> <%= journal.start_date.strftime('%B  %d, %Y') %><br/>
+	<span class="title">End Date:</span> <%= journal.end_date.strftime('%B  %d, %Y') %><br/>
+	<%= link_to 'Edit Journal Info', edit_diary_path(journal), :class => "btn btn-warning" %> 
+	<% if !current_page? diaries_path then %>
+	<%= link_to 'Back', diaries_path, :class => "btn btn-primary" %> 
+	<% end %>
+	<%= link_to 'Destroy Journal', journal, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<% end %>

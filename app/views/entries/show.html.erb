@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<% @diary = Diary.find params[:diary_id]
+	@entry = Entry.find params[:id] %>
+<p>
+  <h2>
+  <b>Name:</b>
+  <%= @entry.title %>
+  </h2>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @entry.date.strftime("%a %b %d %I:%M %p %Y") %>
+</p>
+
+<p>
+  <b>Entry:</b>
+  <%= @entry.entry %>
+</p>
+
+
+<%= link_to 'Edit Entry', edit_diary_entry_path(@diary, @entry), :class => "btn btn-warning" %> 
+<%= link_to 'Back', diary_path(@diary), :class => "btn btn-primary" %> 
+<%= link_to 'Destroy Entry', [@diary, @entry], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>

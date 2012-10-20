@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  diary_id: 1
+  tag_body: MyString
+
+two:
+  diary_id: 1
+  tag_body: MyString

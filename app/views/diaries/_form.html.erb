@@ -1,0 +1,19 @@
+<%= form_for @diary do |d| %>
+	<%= d.error_messages 
+	#:end_date, :start_date, :title, :user_id
+	%>
+	
+	<p>
+		<%= d.label :title %>
+		<%= d.text_field :title %>
+	</p>
+	<p>
+		<%= d.label :start_date %>
+		<%= d.date_select :start_date %>
+	</p>
+	<p>
+		<%= d.label :end_date %>
+		<%= d.date_select :end_date %>
+	</p>
+	<%= d.submit :class => 'btn' %>
+<% end %>

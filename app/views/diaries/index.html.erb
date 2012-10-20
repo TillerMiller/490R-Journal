@@ -1,0 +1,7 @@
+<% title 'Journal Index' %>
+
+<% @diaries.each do |journal| %>
+	<%= render :partial => 'journal', :locals => {:journal => journal } %>
+<% end %>
+<br/>
+<%= link_to 'Create A New Journal', new_diary_path, :class => 'btn' %>

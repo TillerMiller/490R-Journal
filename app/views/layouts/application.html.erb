@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Journal</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Journals for 490R</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><%= link_to 'Home', diaries_path %></li>
+              <% if current_user %>
+              <li> <%= link_to 'Logout', logout_path %></li>
+              <li><%= link_to 'Profile', user_path(current_user) %></li>
+              <% else %>
+              <li><%= link_to 'Login', new_session_path %></li>
+              <li><%= link_to 'Register', new_user_path %></li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+  <%= notice %> 
+  <%= yield %>
+	</div>
+</body>
+</html>
