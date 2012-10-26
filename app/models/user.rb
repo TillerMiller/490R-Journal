@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 	attr_accessible :email, :password, :password_confirmation, :name
 	validates_presence_of :email
 	has_many :diaries, :dependent => :destroy
+	has_many :authentications, :dependent => :destroy
 end

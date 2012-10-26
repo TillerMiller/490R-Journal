@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :except => [:index, :show, :new, :create]
+	before_filter :authenticate, :except => [:index, :new, :create]
 
 	def index
 		@users = User.all
@@ -39,12 +39,13 @@ class UsersController < ApplicationController
 	def destroy
 		@user = User.find current_user
 		id = :id
-		if id != @user.id then
-			redirect_to @user, :notice => "You can't delete other users #{id}."
+		if session[:user_id] != @user.id then
+			#flash[:notice] = "ID is #{id}"
+			redirect_to @user, :notice => "You can't delete other users."
 		else
 			@user.destroy
 			session[:user_id] = nil
-			redirect_to users_path current_user , :notice => 'Profile Deleted.'
+			redirect_to user_path current_user, :notice => 'Profile Deleted.'
 		end
 	end
 end

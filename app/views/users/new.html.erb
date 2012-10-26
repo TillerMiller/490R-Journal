@@ -2,21 +2,60 @@
 <h1>Register</h1>
 <%= form_for @user do |f| %>
 	<%= f.error_messages%>
-	<p>
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-	</p>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.label :password %>
-		<%= f.password_field :password %>
-	</p>
-	<p>
-		<%= f.label :password_confirmation %>
-		<%= f.password_field :password_confirmation %>
-	</p>
-	<p class="button"><%= f.submit 'Register' %></p>
+	<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4" style="border-right:solid gray 1px;">
+			<p>
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+			</p>
+			<p>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</p>
+			<p>
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</p>
+			<p>
+				<%= f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation %>
+			</p>
+			<p class="button"><%= f.submit 'Register' %></p>
+		</div>
+		<div class="span5">
+			<p>Or create an account using social media</p>
+			<table>
+				<tr>
+					<td>
+						<a href="/auth/twitter" class="auth_provider">
+						  <%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %>
+						</a>
+					</td>
+					<td>
+						<a href="/auth/facebook" class="auth_provider">
+						  <%= image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook" %>
+						</a>
+					</td>
+					<td>
+						<a href="/auth/linkedin" class="auth_provider">
+						  <%= image_tag "linkedin_64.png", :size => "64x64", :alt => "Linked-In" %>
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center;">
+						<a href="/auth/twitter" class="auth_provider">Twitter</a>
+					</td>
+					<td style="text-align:center;">
+						<a href="/auth/facebook" class="auth_provider">Facebook</a>
+					</td>
+					<td style="text-align:center;">
+						<a href="/auth/linkedin" class="auth_provider">Linked-In</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</div>
 <% end %>
