@@ -1,5 +1,5 @@
 <% title 'Journal Index' %>
-
+<%= paginate @diaries %>
 <% @diaries.each do |journal| %>
 	<%= render :partial => 'journal', :locals => {:journal => journal } %>
 <% end %>

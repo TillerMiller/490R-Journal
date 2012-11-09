@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 group :development do
   gem 'sqlite3'
+  gem 'therubyracer'
 end
 
 group :production do
@@ -26,7 +27,6 @@ group :assets do
 end
 
 gem 'nifty-generators'
-gem 'therubyracer'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 # To use ActiveModel has_secure_password
@@ -34,6 +34,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
+gem 'kaminari'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

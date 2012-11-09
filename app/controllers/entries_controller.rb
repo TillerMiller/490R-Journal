@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
 		
 	def index
 		@diary = Diary.find params[:diary_id]
-		@entries = Entry.all
+		@entries = Entry.order().page(params[:page])
 	end
 
 	def show

@@ -1,5 +1,5 @@
 <h1>Journal Entries</h1>
-
+<%= paginate @entries %>
 <% @diary.entries.each do |entry| %>
 <table class="table table-bordered">
 	<tr><td><%= entry.title %></tr></td>

@@ -16,7 +16,7 @@ class DiariesController < ApplicationController
 	end
 
 	def index
-		@diaries = Diary.all
+		@diaries = Diary.order().page(params[:page]).per(1)
 	end
 
 	def show
